@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="rfidApp">
+<head lang="tr">
+    <meta charset="UTF-8">
+    <title> Work Log </title>
+
+    <script src="library/angular.min.js"></script>
+    <script src="library/jquery-1.11.2.min.js"></script>
+    <script src="Rfid.js"></script>
+
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="Ctrl">
+    <div ng-show="view == 'main'" class="mainScreen">
+        <div class="left part" ng-click="focusInput()">
+
+            <div class="list">
+                <h2 class="listHeader"> Users At Work </h2>
+                <div class="listItem" ng-repeat="user in usersAtWork">
+                    {{user.username}} - {{user.rfidKey}}
+                </div>
+            </div>
+
+            <div class="list">
+                <h2 class="listHeader"> All Users </h2>
+                <div class="listItem" ng-repeat="user in users">
+                    {{user.username}} - {{user.rfidKey}}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="right part" ng-click="focusInput()">
+            <div id="read">
+                <input class="readInput" ng-model="rfidKey" ng-change="listen(rfidKey)"/>
+            </div>
+
+            <h2 class="listHeader center"> Records </h2>
+            <div class="list records">
+                <table border="1">
+                    <tr>
+                        <th> Date </th>
+                        <th> RfidKey </th>
+                        <th> Status </th>
+                    </tr>
+                    <tr ng-repeat="record in history" ng-class="{in: record.status == 'in', out: record.status == 'out'}">
+                        <td> {{record.date|date:'dd/MM/yyyy HH:mm'}} </td>
+                        <td> {{record.rfidKey}} </td>
+                        <td> {{record.status}} </td>
+                    </tr>
+                    <tr ng-if="!history.length">
+                        <td colspan="3"> No Record </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div ng-show="view == 'newUser'" class="newUser">
+        <h3>
+            New user for <strong> {{rfidKey}} </strong>
+        </h3>
+        <div class="form">
+            <label> Name </label>
+            <input type="text" ng-model="username" class="usernameInput"/>
+        </div>
+        <button ng-click="saveUser(username, rfidKey)"> Save </button>
+    </div>
+</body>
+</html>

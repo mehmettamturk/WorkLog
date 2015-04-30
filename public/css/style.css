@@ -1,0 +1,130 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: rgba(221, 234, 245, 0.51);
+}
+
+.part {
+    float: left;
+    position: fixed;
+    box-sizing: border-box;
+}
+
+.part.left {
+    width: 300px;
+    background: #171818;
+    height: 100%;
+    color: white;
+    padding: 20px;
+}
+
+.part.right {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+    height: 100%;
+    padding: 30px 0;
+}
+
+#read {
+    width: 100%;
+    text-align: center;
+}
+
+#read input {
+    height: 50px;
+    width: 300px;
+    text-align: center;
+    font-size: 40px;
+    outline: none;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.list {
+    margin-bottom: 40px;
+}
+
+.listHeader {
+    text-decoration: underline;
+}
+
+.listHeader.center {
+    text-align: center;
+}
+
+.records {
+    text-align: center;
+    height: calc(100% - 124px);
+    overflow-y: auto;
+}
+
+table {
+    border: 1px solid black;
+    width: 500px;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+table tr.in {
+    color: #00a855;
+}
+
+table tr.out {
+    color: rgb(199, 44, 44);
+}
+
+table th {
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px 20px;
+}
+
+table td {
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.newUser {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.newUser h3 {
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+
+.newUser h3 strong {
+    font-weight: bold;
+}
+
+.newUser label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.newUser input {
+    width: 300px;
+    height: 50px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    outline: none;
+    font-size: 24px;
+    text-align: center;
+}
+
+.newUser button {
+    font-size: 24px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    background: rgb(72, 137, 255);
+    padding: 10px 30px;
+}

@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+var app = require('../app');
+var Mongo = require('../lib/Mongo');
+
+app.set('port', process.env.PORT || 3006);
+
+Mongo.connect('mongodb://127.0.0.1/WorkLog', function() {
+    var server = app.listen(app.get('port'), function() {
+        console.log('Express server listening on port ' + server.address().port);
+    });
+});
+
+
